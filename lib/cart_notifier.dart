@@ -13,10 +13,6 @@ class CartNotifier extends ValueNotifier<Cart> {
     value = await repository.get();
   }
 
-  void update(Cart value) {
-    this.value = value;
-  }
-
   void remove(Item item) {
     this.value = value.remove(item);
   }

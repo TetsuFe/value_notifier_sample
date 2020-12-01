@@ -19,7 +19,7 @@ void main() {
       lastValue = cartNotifier.value;
     });
 
-    cartNotifier.update(cart);
+    cartNotifier.value = cart;
     expect(lastValue, cart);
 
     cartNotifier.remove(Item(1, 'grape', 300));

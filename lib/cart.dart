@@ -1,11 +1,12 @@
+import 'package:meta/meta.dart';
+
 import 'item.dart';
 
+@immutable
 class Cart {
-  Cart(List<Item> items) {
-    this.items = items;
-  }
+  Cart(this.items);
 
-  List<Item> items;
+  final List<Item> items;
   int get totalPrice =>
       items.length > 0 ? items.map((a) => a.price).reduce((a, b) => a + b) : 0;
 
