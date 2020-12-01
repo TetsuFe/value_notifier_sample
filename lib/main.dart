@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:value_notifier_sample/cart_notifier.dart';
+import 'package:value_notifier_sample/cart_repository.dart';
 
 import 'cart_page.dart';
 
@@ -16,7 +19,10 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: CartPage(),
+      home: ChangeNotifierProvider(
+        create: (_) => CartNotifier(repository: CartRepository()),
+        child: CartPage(),
+      ),
     );
   }
 }
