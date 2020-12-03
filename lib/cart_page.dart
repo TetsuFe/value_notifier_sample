@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_state_notifier/flutter_state_notifier.dart';
 
 import 'cart.dart';
 import 'cart_notifier.dart';
@@ -20,8 +21,8 @@ class CartView extends StatelessWidget {
   final cartNotifier = CartNotifier(repository: CartRepository());
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder<Cart>(
-      valueListenable: cartNotifier,
+    return StateNotifierBuilder<Cart>(
+      stateNotifier: cartNotifier,
       builder: (context, cart, _) {
         if (cart == null) {
           return const CircularProgressIndicator();

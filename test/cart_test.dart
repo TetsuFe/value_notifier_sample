@@ -15,11 +15,11 @@ void main() {
     final cartNotifier = CartNotifier(repository: CartRepository());
     final cart = Cart([Item(1, 'grape', 300), Item(2, 'orange', 100)]);
     Cart lastValue;
-    cartNotifier.addListener(() {
-      lastValue = cartNotifier.value;
+    cartNotifier.addListener((_) {
+      lastValue = cartNotifier.debugState;
     });
 
-    cartNotifier.value = cart;
+    cartNotifier.update(cart);
     expect(lastValue, cart);
 
     cartNotifier.remove(Item(1, 'grape', 300));
